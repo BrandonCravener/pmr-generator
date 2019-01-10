@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$pmr-primary: mat-palette($mat-indigo);
+$pmr-accent:  mat-palette($mat-teal, A200, A100, A400);
+$pmr-warn:    mat-palette($mat-orange);
+
+$pmr-theme: mat-light-theme($pmr-primary, $pmr-accent, $pmr-warn);
+
+@include angular-material-theme($pmr-theme);
+
+.bg-primary {
+  background-color: mat-color($pmr-primary);
+}
+.bg-accent {
+  background-color: mat-color($pmr-accent);
+}
+.bg-warn {
+  background-color: mat-color($pmr-warn);
+}
+
+.primary {
+  color: mat-color($pmr-primary);
+}
+.accent {
+  color: mat-color($pmr-accent);
+}
+.warn {
+  color: mat-color($pmr-warn);
+}

@@ -1,0 +1,64 @@
+<mat-list class="info">
+  <mat-list-item form>
+    <mat-form-field>
+      <mat-label>Project Title</mat-label>
+      <input matInput [(ngModel)]="pmr.title" (keyup)="generateOutput()">
+    </mat-form-field>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-form-field>
+      <mat-label>Purpose of Project</mat-label>
+      <input matInput [(ngModel)]="pmr.purpose" (keyup)="generateOutput()">
+    </mat-form-field>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-form-field>
+      <mat-label>Version or Date</mat-label>
+      <input matInput [(ngModel)]="pmr.version" (keyup)="generateOutput()">
+    </mat-form-field>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-form-field>
+      <mat-chip-list #authorList>
+        <mat-chip *ngFor="let author of pmr.authors" selectable="false" removable="true" (removed)="removeAuthor(author)">
+          {{author}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Authors" [matChipInputFor]="authorList" [matChipInputSeparatorKeyCodes]="separatorKeysCodesAuthors"
+          matChipInputAddOnBlur="true" (matChipInputTokenEnd)="addAuthor($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-form-field>
+      <mat-chip-list #positivesList>
+        <mat-chip *ngFor="let positive of pmr.positives" selectable="false" removable="true" (removed)="removePositive(positive)">
+          {{positive}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Positives" [matChipInputFor]="positivesList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          matChipInputAddOnBlur="true" (matChipInputTokenEnd)="addPositive($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-form-field>
+      <mat-chip-list #negativesList>
+        <mat-chip *ngFor="let negative of pmr.negatives" selectable="false" removable="true" (removed)="removeNegative(negative)">
+          {{negative}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Negatives" [matChipInputFor]="negativesList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          matChipInputAddOnBlur="true" (matChipInputTokenEnd)="addNegative($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </mat-list-item>
+</mat-list>
+<div class="live-preview">
+  <div class="preview-pad">
+    <mat-form-field>
+      <mat-label>Full PMR</mat-label>
+      <textarea class="output" matInput (change)="syncFullText()" [value]="output" rows="17"></textarea>
+    </mat-form-field>
+  </div>
+</div>
