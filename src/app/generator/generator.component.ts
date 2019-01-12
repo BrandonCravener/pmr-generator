@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { PMR } from 'src/interfaces';
 import { MatChipInputEvent } from '@angular/material';
 import * as _chance from 'chance';
-
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-generator',
@@ -58,6 +58,16 @@ AUTHORS: ${pmr.authors.join(', ')}
 
 ********************************************************************************
 In the future: ${pmr.future}`;
+  }
+
+  copyOutput(outputField: HTMLTextAreaElement) {
+    outputField.select();
+    document.execCommand('copy');
+  }
+
+  saveOutput(outputField: HTMLTextAreaElement) {
+    const text = new Blob([outputField.value], { type: 'text/plain;charset=utf-8' });
+    saveAs(text, `README.txt`, true);
   }
 
   addAuthor(event: MatChipInputEvent) {
@@ -134,9 +144,4 @@ In the future: ${pmr.future}`;
 
     this.generateOutput();
   }
-
-  syncFullText() {
-
-  }
-
 }
