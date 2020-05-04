@@ -1,4 +1,4 @@
-# [PMR Generator](https://pmr.brandoncravener.com)
+# [PMR Generator](https://brandoncravener.github.io/pmr-generator/)
 
 ## Description
 
