@@ -1,4 +1,4 @@
-# [PMR Generator](https://brandoncravener.github.io/pmr-generator/)
+# [PMR Generator](https://brandoncravener.github.io/pmr-generator/) - Archived
 
 ## Description
 
@@ -43,7 +43,7 @@ Run with `$ ng serve`
 
 ## Support
 
-If there are any major issues with this project, please report them at: [contact@brandoncravener.com](mailto:contact@brandoncravener.com)
+If there are any major issues with this project, please report them through the [issues tab](https://github.com/BrandonCravener/pmr-generator/issues).
 
 ---
 
